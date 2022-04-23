@@ -6,7 +6,7 @@ pluginManagement {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
-rootProject.name = "remoteMouseSolution"
+rootProject.name = "DemoComposeMulti"
 
 
 include(":android")

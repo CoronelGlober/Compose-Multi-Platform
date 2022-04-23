@@ -21,7 +21,7 @@ class SharedViewModel : ViewModel() {
             withContext(defaultDispatcher) {
                 while (true) {
                     delay(1000)
-                    println("setting a new second ${state.value.seconds}, ${state.value.timerStarted}")
+                    println("setting a new second ${state.value.seconds}")
                     state.value = State(true, state.value.seconds + 1)
                 }
             }

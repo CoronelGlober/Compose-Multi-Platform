@@ -21,7 +21,7 @@ kotlin {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
         }
-        tasks.withType<KotlinCompile>{
+        tasks.withType<KotlinCompile> {
             kotlinOptions {
                 jvmTarget = "11"
             }
@@ -31,7 +31,7 @@ kotlin {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
         }
-        tasks.withType<KotlinCompile>{
+        tasks.withType<KotlinCompile> {
             kotlinOptions {
                 jvmTarget = "11"
             }
@@ -69,7 +69,7 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
-                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
             }
         }
         val commonTest by getting {
@@ -117,11 +117,11 @@ repositories {
 }
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(31)
+        minSdk = 24
+        targetSdk = 31
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -138,23 +138,9 @@ kotlin {
             binaryOptions["memoryModel"] = "experimental"
         }
     }
-    tasks.withType<KotlinCompile>{
-        kotlinOptions{
-            jvmTarget = "11"
-        }
-    }
 }
 
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
-}
-
-kotlin {
-    targets.withType<KotlinNativeTarget> {
-        binaries.all {
-            // TODO: the current compose binary surprises LLVM, so disable checks for now.
-            freeCompilerArgs += "-Xdisable-phases=VerifyBitcode"
-        }
-    }
 }

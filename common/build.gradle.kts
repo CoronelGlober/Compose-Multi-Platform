@@ -27,6 +27,24 @@ kotlin {
             }
         }
     }
+
+    /*linuxX64 ("linuxX64") {
+        binaries {
+            executable {
+                entryPoint = "main"
+            }
+        }
+    }*/
+    macosX64 ("macosX64") {
+        binaries {
+            executable {
+                entryPoint = "main"
+                freeCompilerArgs += listOf(
+                    "-linker-option", "-framework", "-linker-option", "Metal"
+                )
+            }
+        }
+    }
     jvm("desktop") {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
@@ -143,4 +161,9 @@ kotlin {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
+}
+
+tasks.withType<Wrapper> {
+    gradleVersion = "7.4.2"
+    distributionType = Wrapper.DistributionType.BIN
 }

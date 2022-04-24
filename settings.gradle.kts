@@ -12,4 +12,5 @@ rootProject.name = "DemoComposeMulti"
 include(":android")
 include(":desktop")
 include(":common")
+include(":server")
 include("iOS")
